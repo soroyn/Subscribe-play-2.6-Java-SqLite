@@ -1,0 +1,27 @@
+@(subscriberForm: Form[Subscriber])
+
+@import helper.Implicits._
+@import b4.vertical.fieldConstructor
+
+@main("Blank of subscription"){
+
+<div class="container">
+     <div class="row justify-content-md-center">
+         <div class="col-sm-4 bg-warning text-dark">
+			<h4 class="text-center">Travel Application</h4>
+			<h6>Our app will allow to find blogs different user, but before we are aim to special new lines of our blogs and we are going to connect convenient maps to find as places as blog's users with their opportunity to share everything</h6>
+			@*Here implements a CSRF certificate
+			*@
+			@b4.form(action=helper.CSRF(routes.Subscribers.save())){
+				<fieldset>
+			@b4.text(subscriberForm("fname"), '_label -> "Full Name")
+			@b4.text(subscriberForm("lname"), '_label -> "Last Name")
+			@b4.text(subscriberForm("amail"), '_label -> "Email")
+				</fieldset>
+				<input type="submit" class="btn btn-primary" value="Subscribe!">
+				}
+		</div>
+	</div>
+</div>
+
+}
